@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#131921" />
+  <meta name="description" content="MiniAmazon: a university e-commerce project with an AI shopping assistant." />
+  <title>MiniAmazon | Shop Smart with AI</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="topline"><span>🚚 Free delivery on orders above 200 SAR</span><span>University project • Demo store • Not affiliated with Amazon</span></div>
+  <header class="main-header">
+    <a href="#home" class="logo" aria-label="MiniAmazon home"><span>mini</span><strong>amazon</strong><i></i></a>
+    <div class="location"><span class="small">Deliver to</span><b>📍 Saudi Arabia</b></div>
+    <form class="search" id="searchForm" role="search">
+      <select id="searchCategory" aria-label="Search category"><option value="All">All</option><option>Electronics</option><option>Fashion</option><option>Home</option><option>Sports</option><option>Beauty</option></select>
+      <input type="search" id="searchInput" placeholder="Search MiniAmazon products..." aria-label="Search products" />
+      <button type="submit" aria-label="Search">⌕</button>
+    </form>
+    <button class="header-button" id="accountButton"><span class="small">Hello, guest</span><b>Account ▾</b></button>
+    <button class="header-button" id="ordersButton"><span class="small">Returns &</span><b>Orders</b></button>
+    <button class="cart-button" id="openCart" aria-label="Open cart"><span class="cart-icon">🛒<em id="cartCount">0</em></span><b>Cart</b></button>
+  </header>
+  <nav class="nav-bar" aria-label="Product categories"><button id="menuButton" class="nav-link">☰ All</button><button data-category="Electronics" class="nav-link">Electronics</button><button data-category="Fashion" class="nav-link">Fashion</button><button data-category="Home" class="nav-link">Home & Kitchen</button><button data-category="Sports" class="nav-link">Sports & Fitness</button><button data-category="Beauty" class="nav-link">Beauty</button><span>✨ Discover smart deals with AI</span></nav>
+  <main id="home">
+    <section class="hero" aria-label="Welcome promotion">
+      <div class="hero-text"><p class="eyebrow">WELCOME TO MINIAMAZON</p><h1>Everything you love.<br /><span>Smarter shopping.</span></h1><p>Discover amazing products, compare prices, and get personalized recommendations from your AI shopping assistant.</p><div class="hero-actions"><button id="shopNow" class="button button-primary">Shop today's deals →</button><button id="heroAI" class="button button-secondary">✦ Ask AI Assistant</button></div><div class="hero-trust"><span>✓ Fast shopping</span><span>✓ Prices in SAR</span><span>✓ Smart recommendations</span></div></div>
+      <div class="hero-art" aria-hidden="true"><div class="art-glow"></div><div class="hero-item headphones">🎧</div><div class="hero-item sneaker">👟</div><div class="hero-item watch">⌚</div><div class="hero-bubble">✦ AI picks for you</div><div class="hero-price">Starting at <b>79 SAR</b></div></div>
+    </section>
+    <section class="benefits" aria-label="Shopping benefits"><div><span>🚚</span><section><b>Easy delivery</b><small>Great deals across Saudi Arabia</small></section></div><div><span>💰</span><section><b>Best value</b><small>Compare product prices instantly</small></section></div><div><span>🤖</span><section><b>AI shopping assistant</b><small>Find exactly what you need</small></section></div><div><span>🛡️</span><section><b>Secure demo</b><small>No real payments processed</small></section></div></section>
+    <section class="categories-section" id="categories"><div class="section-header"><div><p class="section-kicker">BROWSE COLLECTIONS</p><h2>Shop by category</h2></div></div><div class="categories-grid" id="categoriesGrid"></div></section>
+    <section class="products-section" id="products"><div class="section-header"><div><p class="section-kicker">CURATED FOR YOU</p><h2 id="productsHeading">Today's top picks</h2><p class="muted" id="resultsLabel">Browse products and discover your favorites</p></div><div class="tools"><label for="sortSelect">Sort:</label><select id="sortSelect"><option value="featured">Featured</option><option value="low">Price: Low to High</option><option value="high">Price: High to Low</option><option value="rating">Customer Ratings</option></select></div></div><div class="product-grid" id="productGrid"></div><div class="empty-state hidden" id="emptyState">🔎<h3>No products found</h3><p>Try a different search or ask the assistant to help you.</p><button class="button button-secondary" id="clearFilters">Clear filters</button></div></section>
+    <section class="ai-promo"><div class="ai-promo-icon">✦</div><div><p class="section-kicker">YOUR PERSONAL SHOPPING HELPER</p><h2>Not sure what to buy? Ask our assistant.</h2><p>Try: “Find me shoes under 300 SAR for gym.” You can also compare prices or generate seller descriptions.</p></div><button class="button button-primary" id="promoAI">Chat with assistant →</button></section>
+  </main>
+  <footer><div><a class="footer-logo" href="#home">mini<strong>amazon</strong></a><p>A Mini Amazon e-commerce educational project with an optional real AI shopping assistant.</p></div><div><b>Quick links</b><a href="#products">Shop Products</a><a href="#categories">Categories</a><button id="footerAssistant">AI Assistant</button></div><div><b>Project features</b><span>Product search & filters</span><span>Shopping cart</span><span>Price comparison</span><span>Seller description generation</span></div><p class="copyright">© 2026 MiniAmazon Student Project. Educational demonstration only. Not an official Amazon website. No real orders or payments.</p></footer>
+  <button id="chatLauncher" class="chat-launcher" aria-label="Open shopping assistant"><span>✦</span><b>Ask AI</b></button>
+  <aside class="chat-panel hidden" id="chatPanel" aria-label="Shopping assistant" aria-hidden="true"><div class="chat-header"><div class="assistant-avatar">✦</div><div><b>Shopping Assistant</b><span id="aiStatus">Smart demo mode</span></div><button id="closeChat" aria-label="Close assistant">×</button></div><div class="chat-messages" id="chatMessages" aria-live="polite"><div class="message bot">Hi! 👋 I'm your MiniAmazon shopping assistant. Tell me what you're looking for, ask me to compare prices, or let me write a product description for your store.</div></div><div class="quick-actions" id="quickActions"><button data-prompt="Find me shoes under 300 SAR for gym">👟 Gym shoes under 300</button><button data-prompt="Compare headphone prices">🎧 Compare headphones</button><button data-prompt="Write a product description for a smartwatch">✍️ Seller description</button></div><form id="chatForm" class="chat-input"><input id="chatInput" required maxlength="500" placeholder="Ask about products and prices..." aria-label="Chat message" /><button type="submit" aria-label="Send message">➤</button></form><div class="chat-disclaimer">Demo uses sample products and prices. Real AI requires an API key on the server.</div></aside>
+  <div class="overlay hidden" id="overlay"></div>
+  <aside class="cart-drawer hidden" id="cartDrawer" aria-label="Shopping cart"><div class="drawer-header"><h2>🛒 Your Cart <span id="drawerCount">(0)</span></h2><button id="closeCart" aria-label="Close cart">×</button></div><div id="cartItems" class="drawer-body"></div><div class="cart-bottom"><div class="subtotal"><span>Subtotal</span><strong id="subtotal">0 SAR</strong></div><small>Demonstration only — no real payment or shipping.</small><button id="checkout" class="button button-primary full">Proceed to Checkout</button></div></aside>
+  <div class="product-modal hidden" id="productModal" role="dialog" aria-modal="true" aria-label="Product details"><button id="closeProduct" class="modal-close" aria-label="Close details">×</button><div id="productModalContent"></div></div>
+  <div id="toast" role="status" class="toast hidden"></div>
+</body>
+</html>
